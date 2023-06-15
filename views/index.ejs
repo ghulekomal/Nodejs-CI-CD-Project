@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo List</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Todo List</h1>
+    <form action="/add" method="POST">
+      <input type="text" name="newtodo" placeholder="Enter a new todo">
+      <button type="submit">Add</button>
+    </form>
+    <ul>
+      <% for(let i=0; i<todoList.length; i++) { %>
+        <li>
+          <%= todoList[i] %>
+          <form action="/delete/<%= i %>" method="POST" class="delete-form">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</body>
+</html>
+
